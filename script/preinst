@@ -1,4 +1,0 @@
-#!/bin/sh
-pkill vtp_server
-rmmod virtual_touchpad
-exit 0
