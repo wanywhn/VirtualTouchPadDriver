@@ -27,19 +27,19 @@ install:
 dkms:
 	#add
 	if ! dkms status -m $(dkms_name) -v $(dkms_version) | egrep '(added|built|installed)' >/dev/null ; then\
-		sudo dkms add  ${DIR}; \
+		dkms add  ${DIR}; \
 	fi
 	#build
 	#if ! dkms status -m $(dkms_name) -v $(dkms_version)  | egrep '(built|installed)' >/dev/null ; then\
-		#sudo dkms build $(dkms_name)/$(dkms_version); \
+		dkms build $(dkms_name)/$(dkms_version); \
 	#fi
 	#mkdeb
-	#sudo dkms mktarball -m $(dkms_name) -v $(dkms_version)  --source-only
-	#sudo dkms mkdsc -m $(dkms_name) -v $(dkms_version) --source-only
-	sudo dkms mkdeb -m $(dkms_name) -v $(dkms_version) --source-only
+	#dkms mktarball -m $(dkms_name) -v $(dkms_version)  --source-only
+	#dkms mkdsc -m $(dkms_name) -v $(dkms_version) --source-only
+	dkms mkdeb -m $(dkms_name) -v $(dkms_version) --source-only
 
 dkms_clean:
 	# if dkms bindings exist, remove them
 	if dkms status -m $(dkms_name) -v $(dkms_version) | egrep '(added|built|installed)' >/dev/null ; then\
-		sudo dkms remove $(dkms_name)/$(dkms_version) --all; \
+		dkms remove $(dkms_name)/$(dkms_version) --all; \
 	fi

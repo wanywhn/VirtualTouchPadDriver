@@ -1,0 +1,1 @@
+KERNEL=="virtual_touchpad",MODE="0666"

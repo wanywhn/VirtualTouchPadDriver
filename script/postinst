@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Installing udev rules..."
+install -D -m 0644 -t /etc/udev/rules.d 50-virtual-touchpad-driver-fixup-permission.rules
+
+echo "Reloading udev..."
+udevadm control --reload
